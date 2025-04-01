@@ -11,7 +11,6 @@ export default function Tabuleiro() {
 
     
     return (
-        <>
         <div className="tabuleiro">
             <Celula nomeClasse={celulas[0]} vezDoXis={vezX} onClick={function () { joga(0); }} />
             <Celula nomeClasse={celulas[1]} vezDoXis={vezX} onClick={function () { joga(1); }} />
@@ -23,6 +22,6 @@ export default function Tabuleiro() {
             <Celula nomeClasse={celulas[7]} vezDoXis={vezX} onClick={function () { joga(7); }} />
             <Celula nomeClasse={celulas[8]} vezDoXis={vezX} onClick={function () { joga(8); }} />
         </div>
-        </>
+ 
     )
 }
