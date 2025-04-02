@@ -7,7 +7,7 @@ import Tabuleiro from './components/Tabuleiro/Tabuleiro';
 function App() {
   return (
     <>
-      <Tabuleiro />
+      <h1>Index - bem vindo</h1>
     </>
   )
 }

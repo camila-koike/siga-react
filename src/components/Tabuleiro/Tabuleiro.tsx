@@ -4,11 +4,38 @@ import { useState } from "react"
 
 export default function Tabuleiro() {
     //celulas = document.querySelectorAll(".celula");
-    const [celulas, setCelulas] = useState(['xis', 'xis', 'circulo', null, 'circulo', null, null, null, null])
+    const [celulas, setCelulas] = useState<(string | null)[]>([null, null, null, null, null, null, null, null, null])
     const [vezX, setVezX] = useState(true);
+    let [vitoria, setVitoria] = useState(false);
+   
+    function joga(i : number) {
+        // Colocar a marca (X ou CÃ­rculo)
+        if(celulas[i] != null || vitoria == true){
+            return;   
+        }
+        // let novoTabuleiro = [celulas[0], celulas[1], celulas[2], celulas[3], celulas[4], celulas[5], celulas[6], celulas[7], celulas[8]] 
+        let novoTabuleiro = [...celulas] 
 
-    
+        if(vezX == true){
+            novoTabuleiro[i] = 'xis'
+            setVezX(false)
+        }else{
+            novoTabuleiro[i] = 'circulo'
+            setVezX(true)
+        }         
+        setCelulas(novoTabuleiro);
+        verificaVitoria(novoTabuleiro);    
 
+    };
+    function verificaVitoria(estadoTabuleiro : (string | null)[]) {
+        if ((estadoTabuleiro[0] !== null &&
+            estadoTabuleiro[0] == estadoTabuleiro[1]  &&
+            estadoTabuleiro[1] == estadoTabuleiro[2]) )
+         {
+                setVitoria(true);
+                alert("Alguém ganhou")
+        }
+    }
     
     return (
         <div className="tabuleiro">
